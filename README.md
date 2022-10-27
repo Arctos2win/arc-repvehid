@@ -8,3 +8,6 @@ Feel free to edit the script and if you want to share just Fork xD
 
 I used ESX framework but if you want to convert it to QBCore or another custom framework 
 then just do it xD 
+
+i did run a test with another player and it was perfectly synced if you find any 
+bugs and you dont want to fix it yourself create an issue yes. 
