@@ -1,13 +1,12 @@
-local sessions = {}
-
 ESX.RegisterCommand({'repairvehid', 'rvi'}, 'admin',
                     function(xPlayer, args, showError)
                         local xTarget = ESX.GetPlayerFromId(args.targetid) 
                         if xTarget == nil then xPlayer.showNotification("De speler die je hebt opgegeven is niet gevonden.") return end
-                        sessions[args.targetid] = {
-                            allowed = true
-                        }
-                        TriggerClientEvent("repveh:StartRepairing", args.targetid) 
+                        local targetPed = GetPlayerPed(args.targetid) 
+                        local targetVehicle = GetVehiclePedIsIn(targetPed, true) 
+                        local netid = NetworkGetNetworkIdFromEntity(targetVehicle)  
+                        SetNetworkIdExistsOnAllMachines(netid, true)  
+                        TriggerClientEvent("repveh:repair", -1, netid)        
                     end, false, { help = "repairvehicleid", 
     arguments = {
         {
@@ -17,16 +16,6 @@ ESX.RegisterCommand({'repairvehid', 'rvi'}, 'admin',
         }
     }
 }) 
-
-ESX.RegisterServerCallback("repveh:CheckAllowed", function(source, cb, targetid)
-    if sessions[source].allowed == true then 
-        TriggerClientEvent("esx:showNotification", source, "Je voertuig is gerepaired !", "info", 2500) 
-        cb(true)
-        sessions[source] = nil 
-    else 
-        cb(false)
-    end
-end)
 
 
 

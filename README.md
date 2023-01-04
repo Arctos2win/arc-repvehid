@@ -1,10 +1,10 @@
-# arc-repvehid
-FiveM Repair vehicle from player id
+FiveM repair vehicle id. 
 
-Only one rule do not sell this script i know this isnt a eye catching script 
-but just dont if you where thinking of it xD. 
+With this script you can repair the vehicle 
+from a player without actually going to the player. 
 
-Feel free to edit the script and if you want to share just Fork xD 
+There is not much protection on it since they can just use 
+the fivem natives in a lua executor if they would want so. 
 
-I used ESX framework but if you want to convert it to QBCore or another custom framework 
-then just do it xD 
+This script requires the ESX framework feel free to convert to QBCore 
+if you want. 
