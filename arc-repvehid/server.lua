@@ -16,7 +16,3 @@ ESX.RegisterCommand({'repairvehid', 'rvi'}, 'admin',
         }
     }
 }) 
-
-
-
-
