@@ -5,7 +5,6 @@ ESX.RegisterCommand({'repairvehid', 'rvi'}, 'admin',
         xPlayer.showNotification("We can't find a player with that player id.")
         return
     end
-    
     local targetPed = GetPlayerPed(args.targetid)
     local targetVehicle = GetVehiclePedIsIn(targetPed, true)
     if targetVehicle and DoesEntityExist(targetVehicle) then
@@ -25,9 +24,4 @@ end, false, {
             type = 'number'
         }
     }
-<<<<<<< HEAD
 })
-=======
-}) 
-
->>>>>>> 5172dac2694e63c4663e66395eb0966d8e85ca5c
