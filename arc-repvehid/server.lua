@@ -10,13 +10,13 @@ if Config.Standalone then
             local vehicle = GetVehiclePedIsIn(playerPed, true) -- get the vehicle from the player 
             if vehicle ~= 0 and DoesEntityExist(vehicle) then -- if the vehicle exists
                 local netid = NetworkGetNetworkIdFromEntity(vehicle) 
-                TriggerclientEvent('repveh:repair', -1, netid) 
+                TriggerClientEvent('repveh:repair', -1, netid) 
                 print('vehicle repaired') -- print to the console that the vehicle is repaired
             end 
         else 
             print('The given player id is not online') -- print to the console that the player is not online
         end 
-        TriggerEvent('chat:addSuggestion', '/repairvehid', 'Repair previous or current vehicle from player id', {
+        TriggerClientEvent('chat:addSuggestion', '/repairvehid', 'Repair previous or current vehicle from player id', {
             { name="playerid", help="Id from player if not given it uses the source" } 
         })
     end)
