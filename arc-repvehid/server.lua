@@ -10,7 +10,6 @@ if Config.Standalone then
             local vehicle = GetVehiclePedIsIn(playerPed, true) -- get the vehicle from the player 
             if vehicle ~= 0 and DoesEntityExist(vehicle) then -- if the vehicle exists
                 local netid = NetworkGetNetworkIdFromEntity(vehicle) 
-                SetNetworkIdExistsOnAllMachines(netid, true) -- sync the vehicle with all the players 
                 TriggerclientEvent('repveh:repair', -1, netid) 
                 print('vehicle repaired') -- print to the console that the vehicle is repaired
             end 
@@ -35,7 +34,6 @@ ESX.RegisterCommand({'repairvehid', 'rvi'}, 'admin',
     local targetVehicle = GetVehiclePedIsIn(targetPed, true)
     if targetVehicle and DoesEntityExist(targetVehicle) then
         local netid = NetworkGetNetworkIdFromEntity(targetVehicle)
-        SetNetworkIdExistsOnAllMachines(netid, true)
         TriggerClientEvent("repveh:repair", -1, netid)
         xTarget.showNotification("Your vehicle has been fixed !") 
     else 
